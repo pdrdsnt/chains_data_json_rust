@@ -34,10 +34,6 @@
 						3000,
 						10000
 					]
-				},
-				{
-					"version": "v4",
-					"address": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af"
 				}
 			],
 			"tokens": [
@@ -324,7 +320,7 @@
 					"token1": "0x55d398326f99059fF775485246999027B3197955",
 					"fee": 2500,
 					"spacing": 10,
-					"hooks": null
+					"hooks": "0x0000000000000000000000000000000000000000"
 				}
 			],
 			"dexes": [
@@ -572,7 +568,14 @@
 					"version": "v3",
 					"name": "uniswap",
 					"address": "0x1f98400000000000000000000000000000000003",
-					"fee": null
+					"fee": [
+						100,
+						300,
+						500,
+						1000,
+						3000,
+						10000
+					]
 				}
 			],
 			"tokens": [
@@ -608,8 +611,7 @@
 			],
 			"http_providers": [
 				"https://mainnet.unichain.org"
-			],
-			"explorer": "https://uniscan.xyz"
+			]
 		},
 		{
 			"id": 10,

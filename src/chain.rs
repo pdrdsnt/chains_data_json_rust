@@ -9,7 +9,7 @@ pub struct ChainJsonInput {
     pub id: u64,
     pub tokens: Vec<TokenJsonModel>,
     pub dexes: Vec<DexJsonModel>,
-    pub pools: BTreeMap<JsonPoolKey, Vec<PoolJsonModel>>,
+    pub pools: Vec<PoolJsonModel>,
     pub http_nodes_urls: Vec<String>,
     pub ws_nodes_urls: Vec<String>,
 }
@@ -22,7 +22,7 @@ impl From<ChainDataJsonModel> for ChainJsonInput {
             dexes: value.dexes,
             http_nodes_urls: value.http_providers,
             ws_nodes_urls: value.ws_providers,
-            pools: BTreeMap::new(),
+            pools: value.pools,
         }
     }
 }

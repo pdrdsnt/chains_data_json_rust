@@ -19,21 +19,24 @@ impl Default for ChainsJsonInput {
     fn default() -> Self {
         let chains_models: BlockChainsJsonModel = {
             let mut home = home_dir().unwrap();
-            let mut current = current_dir().unwrap().parent().unwrap().to_path_buf();
+            let mut current = current_dir().unwrap().to_path_buf();
+            current.push("data/chainsData.json");
 
-            home.push("chains_json/data/chainsData.json");
+            println!("path {:?}", &current);
 
-            match BlockChainsJsonModel::new(home.to_str().unwrap()) {
+            match BlockChainsJsonModel::new(current.to_str().unwrap()) {
                 Ok(chains) => {
                     println!("chains created from config chains");
                     chains
                 }
 
                 Err(err) => {
-                    panic!("deserialization error {}", err)
+                    print!("deserialization error {}", err);
+                    panic!()
                 }
             }
         };
+        println!("aaaaaaaaaah");
 
         Self::from(chains_models)
     }
@@ -57,14 +60,7 @@ impl ChainsJsonInput {
         let chain = self.chains.get(&id)?;
         let tokens = chain.tokens.clone();
         let dexes = chain.dexes.clone();
-        let mut pools = Vec::new();
-        chain.pools.iter().for_each(|z| {
-            for p in z.1 {
-                if pools.contains(p) {
-                    pools.push(p.clone());
-                }
-            }
-        });
+        let pools = chain.pools.clone();
 
         Some(ChainDataJsonModelSmall {
             tokens,

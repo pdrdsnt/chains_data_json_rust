@@ -18,13 +18,21 @@ impl BlockChainsJsonModel {
             panic!()
         };
 
+        println!("open: {:?}", json_file);
+
         let mut str_json = String::new();
-        json_file.read_to_string(&mut str_json).unwrap();
 
-        let blockchains: Result<BlockChainsJsonModel, serde_json::Error> =
-            serde_json::from_str(&str_json);
-
-        blockchains
+        match json_file.read_to_string(&mut str_json) {
+            Ok(_) => {
+                let blockchains: Result<BlockChainsJsonModel, serde_json::Error> =
+                    serde_json::from_str(&str_json);
+                return blockchains;
+            }
+            Err(err) => {
+                println!("{:?}", err);
+                panic!()
+            }
+        }
     }
 }
 
@@ -191,7 +199,6 @@ pub enum JsonPoolKey {
 pub struct V4Key {
     currency0: Address,
     currency1: Address,
-
     fee: U24,
     tickSpacing: I24,
     hooks: Address,
