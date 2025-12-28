@@ -12,36 +12,32 @@ pub struct BlockChainsJsonModel {
 }
 
 impl BlockChainsJsonModel {
-    pub fn new(json: &str) -> Result<Self, serde_json::Error> {
-        /*
-                let Ok(mut json_file) = File::open(json_path) else {
-                    panic!()
-                };
+    pub fn new(json_path: &str) -> Result<Self, serde_json::Error> {
+        let Ok(mut json_file) = File::open(json_path) else {
+            panic!()
+        };
 
-            let mut str_json = json_path;
-        */
-
+        let mut str_json = json_path;
         let blockchains: Result<BlockChainsJsonModel, serde_json::Error> =
-            serde_json::from_str(&json);
-
-        blockchains
+                    serde_json::from_str(&str_json);
+                return blockchains;
 
         /*
 
-                match json_file.read_to_string(&mut str_json) {
-                    Ok(_) => {
-        let blockchains: Result<BlockChainsJsonModel, serde_json::Error> =
-                            serde_json::from_str(&str_json);
-                        return blockchains;
+        match json_file.read_to_string(&mut str_json) {
+            Ok(_) => {
+let blockchains: Result<BlockChainsJsonModel, serde_json::Error> =
+                    serde_json::from_str(&str_json);
+                return blockchains;
 
-                                    }
-                    Err(err) => {
-                        println!("{:?}", err);
-                        panic!()
-                    }
-                }
-        */
+                            }
+            Err(err) => {
+                println!("{:?}", err);
+                panic!()
+            }
+        }
     }
+*/
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

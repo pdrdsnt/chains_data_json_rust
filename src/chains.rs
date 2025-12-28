@@ -5,6 +5,9 @@ use std::{
     str::FromStr,
 };
 
+pub const CHAINS_JSON: &str =
+    include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/data/chainsData.json"));
+
 use crate::{
     chain::ChainJsonInput,
     chain_json_model::{BlockChainsJsonModel, ChainDataJsonModelSmall},
@@ -18,13 +21,7 @@ pub struct ChainsJsonInput {
 impl Default for ChainsJsonInput {
     fn default() -> Self {
         let chains_models: BlockChainsJsonModel = {
-            let mut home = home_dir().unwrap();
-            let mut current = current_dir().unwrap().to_path_buf();
-            current.push("data/chainsData.json");
-
-            println!("path {:?}", &current);
-
-            match BlockChainsJsonModel::new(current.to_str().unwrap()) {
+            match BlockChainsJsonModel::new(CHAINS_JSON) {
                 Ok(chains) => {
                     println!("chains created from config chains");
                     chains
