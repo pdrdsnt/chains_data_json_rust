@@ -142,7 +142,7 @@
 				},
 				{
 					"version": "v4",
-					"address": "0x1095692A6237d83C6a72F3F5eFEdb9A670C49223"
+					"state_view": "0x1095692A6237d83C6a72F3F5eFEdb9A670C49223"
 				}
 			],
 			"tokens": [
@@ -244,7 +244,7 @@
 				},
 				{
 					"version": "v4",
-					"address": "0x6ff5693b99212da76ad316178a184ab56d299b43"
+					"state_view": "0x6ff5693b99212da76ad316178a184ab56d299b43"
 				}
 			],
 			"tokens": [
@@ -315,7 +315,7 @@
 				},
 				{
 					"version": "v4",
-					"address": "0xd13Dd3D6E93f276FAfc9Db9E6BB47C1180aeE0c4",
+					"state_view": "0xd13Dd3D6E93f276FAfc9Db9E6BB47C1180aeE0c4",
 					"token0": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
 					"token1": "0x55d398326f99059fF775485246999027B3197955",
 					"fee": 2500,
@@ -341,7 +341,7 @@
 				},
 				{
 					"version": "v4",
-					"address": "0xd13Dd3D6E93f276FAfc9Db9E6BB47C1180aeE0c4",
+					"state_view": "0xd13Dd3D6E93f276FAfc9Db9E6BB47C1180aeE0c4",
 					"manager": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df"
 				},
 				{
@@ -561,8 +561,7 @@
 				{
 					"version": "v4",
 					"name": "uniswap",
-					"address": "0x1f98400000000000000000000000000000000004",
-					"notes": "PoolManager (Uniswap v4) — fees are per-pool/hooks-configured on v4, not a single global fee."
+					"state_view": "0x1f98400000000000000000000000000000000004"
 				},
 				{
 					"version": "v3",

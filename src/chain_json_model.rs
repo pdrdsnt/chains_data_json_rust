@@ -77,8 +77,8 @@ pub enum DexJsonModel {
 
     #[serde(rename = "v4")]
     V4 {
-        address: String,
-        manager: Option<String>,
+        state_view: String,
+        pool_manager: Option<String>,
     },
 }
 
@@ -96,7 +96,6 @@ pub struct TokenJsonModel {
 pub enum PoolJsonModel {
     #[serde(rename = "v2")]
     V2 {
-        factory: Option<String>,
         address: String,
         token0: String,
         token1: String,
@@ -105,7 +104,6 @@ pub enum PoolJsonModel {
 
     #[serde(rename = "v3")]
     V3 {
-        factory: Option<String>,
         address: String,
         token0: String,
         token1: String,
@@ -114,8 +112,8 @@ pub enum PoolJsonModel {
 
     #[serde(rename = "v4")]
     V4 {
-        factory: Option<String>,
-        address: String,
+        pool_manager: Option<String>,
+        state_view: String,
         token0: String,
         token1: String,
         fee: u32,
@@ -128,7 +126,6 @@ impl PoolJsonModel {
     pub fn to_key(&self) -> Option<JsonPoolKey> {
         match self {
             PoolJsonModel::V2 {
-                factory,
                 address,
                 token0,
                 token1,
@@ -140,7 +137,6 @@ impl PoolJsonModel {
                 return Some(JsonPoolKey::V2(addr));
             }
             PoolJsonModel::V3 {
-                factory,
                 address,
                 token0,
                 token1,
@@ -152,8 +148,8 @@ impl PoolJsonModel {
                 return Some(JsonPoolKey::V3(addr));
             }
             PoolJsonModel::V4 {
-                factory,
-                address,
+                pool_manager,
+                state_view,
                 token0,
                 token1,
                 fee,
