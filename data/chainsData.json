@@ -606,9 +606,11 @@
 				}
 			],
 			"ws_providers": [
-				"wss://mainnet.unichain.org"
+				"wss://unichain.drpc.org",
+				"wss://unichain-rpc.publicnode.com"
 			],
 			"http_providers": [
+				"https://unichain.drpc.org",
 				"https://mainnet.unichain.org"
 			]
 		},
